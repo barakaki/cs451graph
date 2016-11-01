@@ -1,0 +1,57 @@
+Sep  1 08:34:08 linuxlite-VirtualBox systemd[1]: Started LSB: Start NTP daemon.
+Sep  1 08:34:09 linuxlite-VirtualBox ntpd[7501]: bind(24) AF_INET6 fe80::3fcf:5f97:4c78:f7a5%2#123 flags 0x11 failed: Cannot assign requested address
+Sep  1 08:34:09 linuxlite-VirtualBox ntpd[7501]: unable to create socket on enp0s3 (6) for fe80::3fcf:5f97:4c78:f7a5%2#123
+Sep  1 08:34:09 linuxlite-VirtualBox ntpd[7501]: failed to init interface for address fe80::3fcf:5f97:4c78:f7a5%2
+Sep  1 08:34:09 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 96.126.105.86
+Sep  1 08:34:10 linuxlite-VirtualBox avahi-daemon[1755]: Joining mDNS multicast group on interface enp0s3.IPv6 with address fe80::3fcf:5f97:4c78:f7a5.
+Sep  1 08:34:10 linuxlite-VirtualBox avahi-daemon[1755]: New relevant interface enp0s3.IPv6 for mDNS.
+Sep  1 08:34:10 linuxlite-VirtualBox avahi-daemon[1755]: Registering new address record for fe80::3fcf:5f97:4c78:f7a5 on enp0s3.*.
+Sep  1 08:34:10 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 104.131.51.97
+Sep  1 08:34:11 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 132.163.4.101
+Sep  1 08:34:11 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 198.55.111.50
+Sep  1 08:34:11 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 208.75.89.4
+Sep  1 08:34:11 linuxlite-VirtualBox ntpd[7501]: Listen normally on 7 enp0s3 [fe80::3fcf:5f97:4c78:f7a5%2]:123
+Sep  1 08:34:11 linuxlite-VirtualBox ntpd[7501]: new interface(s) found: waking up resolver
+Sep  1 08:34:12 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 45.79.10.228
+Sep  1 08:34:18 linuxlite-VirtualBox systemd[1]: Time has been changed
+Sep  1 08:34:18 linuxlite-VirtualBox systemd[2234]: Time has been changed
+Sep  1 08:34:19 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 66.228.42.59
+Sep  1 08:34:19 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 72.14.183.239
+Sep  1 08:34:19 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 209.133.217.165
+Sep  1 08:34:19 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 70.114.179.103
+Sep  1 08:34:20 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 108.61.56.35
+Sep  1 08:34:20 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 69.167.160.102
+Sep  1 08:34:20 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 129.6.15.30
+Sep  1 08:34:20 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 91.189.94.4
+Sep  1 08:34:20 linuxlite-VirtualBox ntpd[7501]: Soliciting pool server 45.127.113.2
+Sep  1 08:34:27 linuxlite-VirtualBox systemd[1]: Started Daily apt activities.
+Sep  1 08:34:27 linuxlite-VirtualBox systemd[1]: apt-daily.timer: Adding 5h 23min 5.534991s random time.
+Sep  1 08:34:27 linuxlite-VirtualBox systemd[1]: apt-daily.timer: Adding 1h 24min 16.855620s random time.
+Sep  1 08:37:55 linuxlite-VirtualBox kernel: [552401.509201] usb 2-1: USB disconnect, device number 5
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.132892] usb 2-1: new full-speed USB device number 6 using ohci-pci
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.392324] usb 2-1: New USB device found, idVendor=80ee, idProduct=0021
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.392334] usb 2-1: New USB device strings: Mfr=1, Product=3, SerialNumber=0
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.392340] usb 2-1: Product: USB Tablet
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.392344] usb 2-1: Manufacturer: VirtualBox
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.422709] input: VirtualBox USB Tablet as /devices/pci0000:00/0000:00:06.0/usb2/2-1/2-1:1.0/0003:80EE:0021.0005/input/input11
+Sep  1 08:37:56 linuxlite-VirtualBox kernel: [552402.538668] hid-generic 0003:80EE:0021.0005: input,hidraw0: USB HID v1.10 Mouse [VirtualBox USB Tablet] on usb-0000:00:06.0-1/input0
+Sep  1 08:37:56 linuxlite-VirtualBox mtp-probe: checking bus 2, device 6: "/sys/devices/pci0000:00/0000:00:06.0/usb2/2-1"
+Sep  1 08:37:56 linuxlite-VirtualBox mtp-probe: bus: 2, device: 6 was not an MTP device
+Sep  1 08:37:57 linuxlite-VirtualBox NetworkManager[1730]: <info>  [1472755077.2877] device (enp0s3): link disconnected (deferring action for 4 seconds)
+Sep  1 08:37:57 linuxlite-VirtualBox kernel: [552403.024666] e1000: enp0s3 NIC Link is Down
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: Deleting interface #3 enp0s3, 10.0.2.15#123, interface stats: received=131, sent=137, dropped=0, active_time=223 secs
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 91.189.94.4 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 129.6.15.30 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 108.61.56.35 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 69.167.160.102 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 70.114.179.103 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 209.133.217.165 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 66.228.42.59 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 72.14.183.239 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 45.79.10.228 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 208.75.89.4 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 198.55.111.50 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 132.163.4.101 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 104.131.51.97 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: 96.126.105.86 local addr 10.0.2.15 -> <null>
+Sep  1 08:37:58 linuxlite-VirtualBox ntpd[7501]: Deleting interface #7 enp0s3, fe80::3fcf:5f97:4c78:f7a5%2#123, interface stats: received=0, sent=0, dropped=0, active_time=220 secs

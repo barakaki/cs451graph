@@ -1,0 +1,10 @@
+digraph{
+ node[shape = rectangle]
+ 
+main->"s==1"
+"s==1" [shape = diamond]
+"s==1":w->"something"[label = true]
+"s==1":e->"nothing"[label = false]
+main[shape = none]
+
+}
