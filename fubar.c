@@ -17,6 +17,7 @@ vector<string> data;
 	int falselabelcounter;
 	int lastthing;
 	int rememberelse;
+	int once =1;
 
 int store(string s)
 {
@@ -177,48 +178,52 @@ void ifstatement(int placement){
 				placement++; //skips {
 				//temp4 = placement;
 				lastthing = placement;
+				cout << '"' << ":w" << "->";
 				while( data[placement] != "}")
 					{
 						if(data[placement] == "if")
 						{
-						cout << '"' << ":w" << "->";
 						outputblock(placement);
 					while(data[placement] != "}"){placement++;}
 						}
 						else if(data[placement] == "for")
 						{
-						cout << '"' << ":w" << "->";
+
 						truelabelcounter--;
 						outputblock(placement);
 					while(data[placement] != "}"){placement++;}
 						}
 						else{
-						cout << '"' << ":w" << "->" << '"';
+						if(once==1){cout << '"';once--;}
 						cout << data[placement];
 						placement++;}
 					}
+					once =1;
 				if(truelabelcounter !=0){cout << '"' << "[label = true]" << endl;truelabelcounter--;}
 				cout << '"';
-				//while( data[lastthing] != "}")
-					//{
-					//	if(data[lastthing] == "if")
-					//	{
-					//	outputblock(lastthing);
-					//while(data[lastthing] != "}"){lastthing++;}
-					//	}
-					//	else if(data[lastthing] == "for")
-					//	{
-					//	outputblock(lastthing);
-					//while(data[lastthing] != "}"){lastthing++;}
-					//	}
-					//	else{
-					//	cout << data[lastthing];
-					//	lastthing++;}
-					//}		
-while(data[lastthing] != ")"){
+if(forcounter ==0){
+				while( data[lastthing] != "}")
+					{
+						if(data[lastthing] == "if")
+						{
+						outputblock(lastthing);
+					while(data[lastthing] != "}"){lastthing++;}
+						}
+						else if(data[lastthing] == "for")
+						{
+						outputblock(lastthing);
+					while(data[lastthing] != "}"){lastthing++;}
+						}
+						else{
+						cout << data[lastthing];
+						lastthing++;}
+					}
+}		
+else{while(data[lastthing] != ")"){
 						cout << data[lastthing];
 						lastthing++;	
 				}
+}
 					cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;
 				
 }

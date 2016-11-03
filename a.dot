@@ -3,15 +3,13 @@ digraph{
  
 main->"s==1"
 "s==1" [shape = diamond]
-"s==1":w->"something":w->";"[label = true]
-"something":s -> "pointstogether"[arrowhead=none]
-"s==1":e->""inti=1;i<s;i++"
-"inti=1;i<s;i++" [shape = diamond]
-"inti=1;i<s;i++":w->"nothing;"[label = true]
-"nothing;":e->"inti=1;i<s;i++":s[label="increment/decrement"]
-"inti=1;i<s;i++":s -> "pointstogether"[arrowhead=none]
+"s==1":w->"something;"[label = true]
+"something;":s -> "pointstogether"[arrowhead=none]
+"s==1":e->"nothing;"[label = false]
+"nothing;":s -> "pointstogether"[arrowhead=none]
 pointstogether[label="",fixedsize=flase,width=0,height=0,shape=none]
-"pointstogether"->"return 0"[shape = none]
+"pointstogether"->"return 0"[shape=oval]
+main[shape = none]
 
 }
 
