@@ -52,7 +52,7 @@ statement:
     	block
 		| IF '(' expression ')' '{' statements '}' ELSE '{' statements '}'	{ cout << "Found if statement" << endl;}
 		| SWITCH '(' sexpr ')' '{' codehere '}'	{ cout << "switch statement found" << endl;}
-		| FOR '(' params ';' params ';' params ')' '{' statements '}' 	{ cout << "For statement found" << endl;}
+		| FOR '(' forcodes ';' forcodes ';' forcodes ')' '{' statements '}' 	{ cout << "For statement found" << endl;}
 		| ID 
 		| expression ';'
 		| sexpr ';'
@@ -77,6 +77,19 @@ anothercode:
 		| DEFAULT ':' 
 		| CASE sexpr ':' 
 		;
+forcodes:
+		forcodes forcode
+		|
+		;
+forcode:
+		ID
+		|symbol
+		| '+'
+		| '-'
+		| "++"
+		| INTEGER
+		|';'
+		;
 
 %%
 
@@ -89,7 +102,7 @@ void yyerror(const char *s) {
 int main(void) {
 	yyparse();
 	cout << "digraph{\n node[shape = rectangle]\n " << endl;
-	start();
+	start(5);
 	output(5);
 	finish();
 	return 0;
