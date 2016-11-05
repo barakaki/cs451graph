@@ -13,11 +13,15 @@ vector<string> data;
 	int temp4;
 	int ifcounter=0;
 	int forcounter=0;
+	int forcounter2=0;
 	int truelabelcounter;
 	int falselabelcounter;
 	int lastthing;
 	int rememberelse;
 	int once =1;
+	int number =2;
+	int checkstatement;
+
 
 int store(string s)
 {
@@ -34,7 +38,7 @@ void start(int input){
 	for(int i=input; i < data.size(); i++)
 	{
 		if(data[i] == "if"){ifcounter++;truelabelcounter++;falselabelcounter++;}
-		else if(data[i] =="for"){forcounter++;}
+		else if(data[i] =="for"){forcounter++;forcounter2++;}
 		else{}
 	}
 }
@@ -61,18 +65,23 @@ void output(int input)
 				i++;
 				i++;
 				forstatement(i);
-				forcounter--;
+				forcounter --;
 			}
 	}
 }
 void forstatement(int placement){
 
+	if(once ==1){
 	cout << '"';
+}	
+
 				fortemp = placement;
 				fortemp2= placement;
 				fortemp3 = placement;
 				fortemp5 = placement;
 				lastthing = placement;
+				temp3 = placement;
+				checkstatement =1;
 	while(data[placement] != ")"){
 						cout <<  data[placement];
 						placement++;
@@ -138,14 +147,17 @@ void forstatement(int placement){
 						fortemp3++;
 				}			
 				cout << '"' << ":s[label=" << '"' << "increment/decrement" << '"' << "]" << endl;
-				if(placement+2 >= data.size()){
+				if(ifcounter ==0){
+				if(placement+3 >= data.size()){
 				cout << '"';
 					while(data[fortemp5] != ")"){
 						cout << data[fortemp5];
 						fortemp5++;
 				}	
+				
 				cout << '"' << ":e -> " << '"' << "return 0" << '"' << "[label=false]" << endl;
 				cout << '"' << "return 0" << '"' << "[shape = oval]" << endl;
+				}
 				}
 
 }	
@@ -199,31 +211,48 @@ void ifstatement(int placement){
 						placement++;}
 					}
 					once =1;
-				if(truelabelcounter !=0){cout << '"' << "[label = true]" << endl;truelabelcounter--;}
+				if(truelabelcounter !=0){cout << '"' << "[label = true]" << endl;}
 				cout << '"';
-if(forcounter ==0){
-				while( data[lastthing] != "}")
+
+if(forcounter ==0 && forcounter2 >0){
+
+				while( data[lastthing] != ")")
 					{
 						if(data[lastthing] == "if")
 						{
 						outputblock(lastthing);
-					while(data[lastthing] != "}"){lastthing++;}
+					while(data[lastthing] != ")"){lastthing++;}
 						}
 						else if(data[lastthing] == "for")
 						{
 						outputblock(lastthing);
-					while(data[lastthing] != "}"){lastthing++;}
+					while(data[lastthing] != ")"){lastthing++;}
+						}
+						else{
+						cout << data[lastthing];
+						lastthing++;}
+					}
+}
+else /*if(forcounter ==1)*/{
+while( data[lastthing] != "}")
+					{
+						if(data[lastthing] == "if")
+						{
+						outputblock(lastthing);
+					while(data[lastthing] != ")"){lastthing++;}
+						}
+						else if(data[lastthing] == "for")
+						{
+						outputblock(lastthing);
+					while(data[lastthing] != ")"){lastthing++;}
 						}
 						else{
 						cout << data[lastthing];
 						lastthing++;}
 					}
 }		
-else{while(data[lastthing] != ")"){
-						cout << data[lastthing];
-						lastthing++;	
-				}
-}
+
+
 					cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;
 				
 }
@@ -235,7 +264,9 @@ void elsestatement(int placement){
 						rememberelse++;
 				}
 				cout << '"' << ":e" << "->" << '"';
+				once =0;
 				temp3=placement;
+				checkstatement =2;
 				while( data[placement] != "}")
 					{
 						if(data[placement] == "if")
@@ -247,18 +278,23 @@ void elsestatement(int placement){
 						else if(data[placement] == "for")
 						{
 						falselabelcounter--;
+						forcounter2 =0;
 						outputblock(placement);
 					while(data[placement] != "}"){placement++;}
 						}
 						else{
+						forcounter2 =1;
 						cout << data[placement];
 						placement++;}
 					}
 				if(falselabelcounter !=0){cout << '"' << "[label = false]" << endl;falselabelcounter--;}
-				
+
 				cout << '"';
+
+if(forcounter ==0 && forcounter2>0){
 					while( data[temp3] != "}")
 					{
+						number++;
 						if(data[temp3] == "if")
 						{
 						outputblock(temp3);
@@ -273,10 +309,30 @@ void elsestatement(int placement){
 						cout << data[temp3];
 						temp3++;}
 					}
+}
+else{
+while( data[temp3] != ")")
+					{
+						number++;
+						if(data[temp3] == "if")
+						{
+						outputblock(temp3);
+					while(data[temp3] != "}"){temp3++;}
+						}
+						else if(data[temp3] == "for")
+						{
+						outputblock(temp3);
+					while(data[temp3] != "}"){temp3++;}
+						}
+						else{
+						cout << data[temp3];
+						temp3++;}
+					}
+}
 				cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;				
-				cout << "pointstogether[label=" << '"' << '"' << ",fixedsize=flase,width=0,height=0,shape=none]" << endl;
+				cout << "pointstogether[label=" << '"' << '"' << ",fixedsize=false,width=0,height=0,shape=none]" << endl;
 				cout << '"' << "pointstogether" << '"' << "->";
-				if(placement+2 >= data.size()){
+				if(placement+number >= data.size()){
 				cout << '"' << "return 0" << '"' << "[shape=oval]" << endl;
 				}
 }

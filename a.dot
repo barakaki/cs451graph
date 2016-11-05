@@ -1,14 +1,12 @@
 digraph{
  node[shape = rectangle]
  
-main->"s==1"
-"s==1" [shape = diamond]
-"s==1":w->"something;"[label = true]
-"something;":s -> "pointstogether"[arrowhead=none]
-"s==1":e->"nothing;"[label = false]
-"nothing;":s -> "pointstogether"[arrowhead=none]
-pointstogether[label="",fixedsize=flase,width=0,height=0,shape=none]
-"pointstogether"->"return 0"[shape=oval]
+main->"inti=1;i<z;i++"
+"inti=1;i<z;i++" [shape = diamond]
+"inti=1;i<z;i++":w->"something;"[label = true]
+"something;":e->"inti=1;i<z;i++":s[label="increment/decrement"]
+"inti=1;i<z;i++":e -> "return 0"[label=false]
+"return 0"[shape = oval]
 main[shape = none]
 
 }
