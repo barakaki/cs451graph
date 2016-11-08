@@ -3,10 +3,10 @@ digraph{
  
 main->"s==1"
 "s==1" [shape = diamond]
-"s==1":w->"something;"[label = true]
-"something;":s -> "pointstogether"[arrowhead=none]
-"s==1":e->"nothing;"[label = false]
-"nothing;":s -> "pointstogether"[arrowhead=none]
+"s==1":w->"word;"[label = true]
+"word;":s -> "pointstogether"[arrowhead=none]
+"s==1":e->"hello;"[label = false]
+"hello;":s -> "pointstogether"[arrowhead=none]
 pointstogether[label="",fixedsize=false,width=0,height=0,shape=none]
 "pointstogether"->"return 0"[shape=oval]
 main[shape = none]

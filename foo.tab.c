@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.0.4.  */
+/* A Bison parser, made by GNU Bison 3.0.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2013 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.4"
+#define YYBISON_VERSION "3.0.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -115,7 +115,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
+typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
 #line 1 "foo.y" /* yacc.c:355  */
@@ -125,8 +125,6 @@ union YYSTYPE
 
 #line 127 "foo.tab.c" /* yacc.c:355  */
 };
-
-typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -144,7 +142,7 @@ int yyparse (void);
 	#include "fubar.h"
 
 
-#line 148 "foo.tab.c" /* yacc.c:358  */
+#line 146 "foo.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1277,47 +1275,47 @@ yyreduce:
         case 3:
 #line 36 "foo.y" /* yacc.c:1646  */
     {cout << "program ready" << endl;}
-#line 1281 "foo.tab.c" /* yacc.c:1646  */
+#line 1279 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 38 "foo.y" /* yacc.c:1646  */
     { cout << "function defined" << endl;}
-#line 1287 "foo.tab.c" /* yacc.c:1646  */
+#line 1285 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 53 "foo.y" /* yacc.c:1646  */
     { cout << "Found if statement" << endl;}
-#line 1293 "foo.tab.c" /* yacc.c:1646  */
+#line 1291 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 54 "foo.y" /* yacc.c:1646  */
     { cout << "Switch statement found" << endl;}
-#line 1299 "foo.tab.c" /* yacc.c:1646  */
+#line 1297 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 55 "foo.y" /* yacc.c:1646  */
     { cout << "For statement found" << endl;}
-#line 1305 "foo.tab.c" /* yacc.c:1646  */
+#line 1303 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
 #line 63 "foo.y" /* yacc.c:1646  */
     { (yyval.s) = (yyvsp[0].s);}
-#line 1311 "foo.tab.c" /* yacc.c:1646  */
+#line 1309 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 70 "foo.y" /* yacc.c:1646  */
     {(yyval.s) = (yyvsp[0].s);}
-#line 1317 "foo.tab.c" /* yacc.c:1646  */
+#line 1315 "foo.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1321 "foo.tab.c" /* yacc.c:1646  */
+#line 1319 "foo.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
