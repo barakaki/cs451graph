@@ -280,8 +280,8 @@ void elsestatement(int placement){
 						else if(data[placement] == "for")
 						{
 						falselabelcounter--;
-						forcounter2 =0;
 						outputblock(placement);
+
 					while(data[placement] != "}"){placement++;}
 						}
 						else{
@@ -311,6 +311,7 @@ if(forcounter ==0 && forcounter2>0){
 						cout << data[temp3];
 						temp3++;}
 					}
+					cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;
 }
 else{
 while( data[temp3] != ")")
@@ -330,8 +331,9 @@ while( data[temp3] != ")")
 						cout << data[temp3];
 						temp3++;}
 					}
+				cout << '"' << ":e -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none][label = false]" << endl;				
 }
-				cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;				
+
 				cout << "pointstogether[label=" << '"' << '"' << ",fixedsize=false,width=0,height=0,shape=none]" << endl;
 				cout << '"' << "pointstogether" << '"' << "->";
 				if(placement+number >= data.size()){

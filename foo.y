@@ -33,9 +33,9 @@
 %%
 
 
-program: program fndef | {cout << "program ready" << endl;}
+program: program fndef | {cerr << "program ready" << endl;}
     	;
-fndef: type ID '(' params ')' block { cout << "function defined" << endl;}
+fndef: type ID '(' params ')' block { cerr << "function defined" << endl;}
     	;
 type:   ID
     	;
@@ -50,9 +50,9 @@ statements:
     	;
 statement:
     	block
-		| IF '(' expression ')' '{' statements '}' ELSE '{' statements '}'	{ cout << "Found if statement" << endl;}
-		| SWITCH '(' sexpr ')' '{' codehere '}'	{ cout << "Switch statement found" << endl;}
-		| FOR '(' forcodes ';' forcodes ';' forcodes ')' '{' statements '}' 	{ cout << "For statement found" << endl;}
+		| IF '(' expression ')' '{' statements '}' ELSE '{' statements '}'	{ cerr << "Found if statement" << endl;}
+		| SWITCH '(' sexpr ')' '{' codehere '}'	{ cerr << "Switch statement found" << endl;}
+		| FOR '(' forcodes ';' forcodes ';' forcodes ')' '{' statements '}' 	{ cerr << "For statement found" << endl;}
 		| ID 
 		| expression ';'
 		| sexpr ';'

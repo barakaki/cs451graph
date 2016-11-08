@@ -1274,32 +1274,57 @@ yyreduce:
     {
         case 3:
 #line 36 "foo.y" /* yacc.c:1646  */
+<<<<<<< HEAD
     {cout << "program ready" << endl;}
 #line 1279 "foo.tab.c" /* yacc.c:1646  */
+=======
+    {cerr << "program ready" << endl;}
+#line 1281 "foo.tab.c" /* yacc.c:1646  */
+>>>>>>> e2dd8491ccea025188ca752c6fb99f10ef73738a
     break;
 
   case 4:
 #line 38 "foo.y" /* yacc.c:1646  */
+<<<<<<< HEAD
     { cout << "function defined" << endl;}
 #line 1285 "foo.tab.c" /* yacc.c:1646  */
+=======
+    { cerr << "function defined" << endl;}
+#line 1287 "foo.tab.c" /* yacc.c:1646  */
+>>>>>>> e2dd8491ccea025188ca752c6fb99f10ef73738a
     break;
 
   case 11:
 #line 53 "foo.y" /* yacc.c:1646  */
+<<<<<<< HEAD
     { cout << "Found if statement" << endl;}
 #line 1291 "foo.tab.c" /* yacc.c:1646  */
+=======
+    { cerr << "Found if statement" << endl;}
+#line 1293 "foo.tab.c" /* yacc.c:1646  */
+>>>>>>> e2dd8491ccea025188ca752c6fb99f10ef73738a
     break;
 
   case 12:
 #line 54 "foo.y" /* yacc.c:1646  */
+<<<<<<< HEAD
     { cout << "Switch statement found" << endl;}
 #line 1297 "foo.tab.c" /* yacc.c:1646  */
+=======
+    { cerr << "Switch statement found" << endl;}
+#line 1299 "foo.tab.c" /* yacc.c:1646  */
+>>>>>>> e2dd8491ccea025188ca752c6fb99f10ef73738a
     break;
 
   case 13:
 #line 55 "foo.y" /* yacc.c:1646  */
+<<<<<<< HEAD
     { cout << "For statement found" << endl;}
 #line 1303 "foo.tab.c" /* yacc.c:1646  */
+=======
+    { cerr << "For statement found" << endl;}
+#line 1305 "foo.tab.c" /* yacc.c:1646  */
+>>>>>>> e2dd8491ccea025188ca752c6fb99f10ef73738a
     break;
 
   case 19:
