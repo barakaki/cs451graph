@@ -232,6 +232,7 @@ if(forcounter ==0 && forcounter2 >0){
 						cout << data[lastthing];
 						lastthing++;}
 					}
+					cout << '"' << ":e -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none][label = false]" << endl;
 }
 else /*if(forcounter ==1)*/{
 while( data[lastthing] != "}")
@@ -250,10 +251,11 @@ while( data[lastthing] != "}")
 						cout << data[lastthing];
 						lastthing++;}
 					}
+					cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;
 }		
 
 
-					cout << '"' << ":s -> " << '"' << "pointstogether" << '"' <<"[arrowhead=none]" << endl;
+
 				
 }
 void elsestatement(int placement){

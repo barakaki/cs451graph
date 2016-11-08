@@ -51,11 +51,12 @@ statements:
 statement:
     	block
 		| IF '(' expression ')' '{' statements '}' ELSE '{' statements '}'	{ cout << "Found if statement" << endl;}
-		| SWITCH '(' sexpr ')' '{' codehere '}'	{ cout << "switch statement found" << endl;}
+		| SWITCH '(' sexpr ')' '{' codehere '}'	{ cout << "Switch statement found" << endl;}
 		| FOR '(' forcodes ';' forcodes ';' forcodes ')' '{' statements '}' 	{ cout << "For statement found" << endl;}
 		| ID 
 		| expression ';'
 		| sexpr ';'
+		| forcode
 		| ';'
     	;
 sexpr:
@@ -69,13 +70,13 @@ symbol:
 		SYM 		{$$ = $1;}	
 		;
 codehere:
-		anothercode codehere
+		codehere anothercode 
 		|
 		;
 anothercode:
 		CASE sexpr ':' statements BREAK';'
 		| DEFAULT ':' 
-		| CASE sexpr ':' 
+		| CASE sexpr ':' statements
 		;
 forcodes:
 		forcodes forcode
