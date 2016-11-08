@@ -1276,31 +1276,31 @@ yyreduce:
     {
         case 3:
 #line 36 "foo.y" /* yacc.c:1646  */
-    {cout << "program ready" << endl;}
+    {cerr << "program ready" << endl;}
 #line 1281 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 38 "foo.y" /* yacc.c:1646  */
-    { cout << "function defined" << endl;}
+    { cerr << "function defined" << endl;}
 #line 1287 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 53 "foo.y" /* yacc.c:1646  */
-    { cout << "Found if statement" << endl;}
+    { cerr << "Found if statement" << endl;}
 #line 1293 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 54 "foo.y" /* yacc.c:1646  */
-    { cout << "Switch statement found" << endl;}
+    { cerr << "Switch statement found" << endl;}
 #line 1299 "foo.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 55 "foo.y" /* yacc.c:1646  */
-    { cout << "For statement found" << endl;}
+    { cerr << "For statement found" << endl;}
 #line 1305 "foo.tab.c" /* yacc.c:1646  */
     break;
 
