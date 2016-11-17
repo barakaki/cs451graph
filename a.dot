@@ -1,14 +1,21 @@
 digraph{
  node[shape = rectangle]
  
-main->"s==1"
-"s==1" [shape = diamond]
-"s==1":w->"something;"[label = true]
-"something;":s -> "pointstogether"[arrowhead=none]
-"s==1":e->"nothing;"[label = false]
-"nothing;":s -> "pointstogether"[arrowhead=none]
-pointstogether[label="",fixedsize=false,width=0,height=0,shape=none]
-"pointstogether"->"return 0"[shape=oval]
-main[shape = none]
-
+0[label = "car" shape = diamond]
+0->1[label ="'jeep'"]
+1[label = "codehere"]
+1->-1
+-1[label = "return 0",shape=oval]
+0->2[label ="'Mustang'"]
+2[label = "s=mustang"]
+2->-1
+-1[label = "return 0",shape=oval]
+0->3[label ="'bug'"]
+3[label = "isBug=1"]
+4->3
+0->4[label ="'vw'"]
+4[label = "s=vw"]
+4->-1
+-1[label = "return 0",shape=oval]
+0->-1[label = "default"]
 }

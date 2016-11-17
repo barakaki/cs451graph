@@ -51,7 +51,7 @@ statements:
 statement:
     	block
 		| IF '(' expression ')' '{' statements '}' ELSE '{' statements '}'	{ cerr << "Found if statement" << endl;}
-		| SWITCH '(' sexpr ')' '{' codehere '}'	{ cerr << "Switch statement found" << endl;}
+		| SWITCH '(' ID ')' '{' codehere '}'	{ cerr << "Switch statement found" << endl;}
 		| FOR '(' forcodes ';' forcodes ';' forcodes ')' '{' statements '}' 	{ cerr << "For statement found" << endl;}
 		| ID 
 		| expression ';'
@@ -103,8 +103,11 @@ void yyerror(const char *s) {
 int main(void) {
 	yyparse();
 	cout << "digraph{\n node[shape = rectangle]\n " << endl;
+	justinoutput();
+	/**
+
 	start(5);
 	output(5);
-	finish();
+	finish();*/
 	return 0;
 }
