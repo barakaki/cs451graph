@@ -1,0 +1,16 @@
+int main(){
+switch(car){
+	case 'jeep':
+		codehere;
+		break;
+	case 'Mustang':
+		s= mustang;
+		break;
+	case 'bug':
+		isBug=1;
+	case 'vw':
+		s=vw;
+		break;
+	default:
+}
+}

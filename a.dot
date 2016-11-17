@@ -12,7 +12,8 @@ digraph{
 -1[label = "return 0",shape=oval]
 0->3[label ="'bug'"]
 3[label = "isBug=1"]
-4->3
+HERE
+3->4
 0->4[label ="'vw'"]
 4[label = "s=vw"]
 4->-1
