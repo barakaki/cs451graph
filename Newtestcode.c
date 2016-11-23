@@ -30,6 +30,7 @@ vector<string>digraph;
 
 int node = 0, switchNode = 0, endNode = -1;
 	bool isIfBracket = false, isFallthrough = false, isSwitchbracket = false;
+	bool notinstatements=true;
 int store(string s)
 {
 	int n = data.size();
@@ -41,14 +42,22 @@ string lookup(int n)
 	return data[n];
 }
 void justinoutput(){
-
-
+int start=0;
+	cout << '"';
+while(data[start] != "{"){
+	cout << data[start];
+	start++;
+}
+	cout << '"' << "-> 0" <<  endl;
+	int tempstarter =0;
 	for (unsigned int i = 5; i < data.size(); i++)
 	{
 		if (data[i] == "if" || data[i] == "switch")
 		{
+			notinstatements=false;
 			if (data[i] == "if")
 			{
+				isSwitchbracket = true;
 				ifPos.push_back(node);
 				isIfBracket = true;
 			}
@@ -64,14 +73,21 @@ void justinoutput(){
 
 			digraph.push_back(to_string(node) + "[label = " +'"'+ temp + '"' +" shape = diamond]");
 
+
+			//digraph.push_back(data[i]);
+			int checknext = i++;
+			checknext++;
+			checknext++;
+
+			if(data[checknext] != "if"|| data[checknext]!="switch" ){notinstatements=true;}
+			else{notinstatements=false;}
+
 			if (isIfBracket)
 			{
 				digraph.push_back(to_string(ifPos.back()) + "->" + to_string(++node) + "[label = true]");
-				//digraph.push_back(to_string(node++) + "->" + to_string(node) + "[label = true]");
 			}
 			else
 			{
-				isSwitchbracket = true;
 				if (node != 0)
 				{
 					digraph.push_back(to_string(node++) + "->" + to_string(node));
@@ -82,15 +98,24 @@ void justinoutput(){
 		}
 		else if (data[i] == "else")
 		{
-			digraph.push_back(to_string(ifPos.back()) + "->" + to_string(++node) + "[label = false]");
+int checknext = i++;
+			checknext++;
+			checknext++;
+			if(data[checknext] != "if"|| data[checknext]!="switch" ){notinstatements=true;}
+			else{notinstatements=false;}
 
-			ifPos.pop_back();
+			digraph.push_back(to_string(ifPos.back()) + "->" + to_string(++node) + "[label = false]");
+			
 			isIfBracket = false;
+			ifPos.pop_back();
+
 		}
 		else
 		{
+ 
 			if (data[i] == "}")
 			{
+
 				if (isIfBracket && ifPos.size() > 0)
 				{
 					ifPos.pop_back();
@@ -104,9 +129,10 @@ void justinoutput(){
 			}
 
 			string temp = "", code = "";
-
+	
 			if (data[i] == "case")
 			{
+				notinstatements=false;
 				i++;
 				while (data[i] != ":")
 				{
@@ -128,6 +154,7 @@ void justinoutput(){
 			}
 			else if (data[i] == "default")
 			{
+				notinstatements=false;
 				code = data[i];
 				digraph.push_back(to_string(switchNode) + "->" + to_string(endNode) + "[label = " + '"'+ code +'"' + "]");
 
@@ -139,6 +166,7 @@ void justinoutput(){
 				continue;
 			}
 
+//WHERE IT READS THE CODE INSIDE { }, PUT LOOP HERE TO OUTPUT STUFF THATS NOT IF,ELSE,SWITCH,ETC...
 			while (data[i] != "if" && data[i] != "else" && data[i] != "switch" && data[i] != "case" && data[i] != "break" && data[i] != "}")
 			{
 				if (data[i] != ";")
@@ -150,37 +178,79 @@ void justinoutput(){
 
 			temp = data[i];
 
-			if (code.size() > 0)
+			if(notinstatements==true){
+				//digraph.push_back(to_string(--node) + "->" + to_string(++node));
+				//node++;
+				int tempnode, nextnode;
+				tempnode =node;
+				nextnode = tempnode++;
+				if(temp=="}" && isSwitchbracket){
+					//digraph.push_back(to_string(nextnode)+ "->" + to_string(endNode));
+					digraph.push_back(to_string(node) + "[label = " +'"'+ code+'"' + "]");
+				}
+				else if(temp == "break")
+				{
+
+				}
+				else{
+
+					digraph.push_back(to_string(nextnode) + "->"+ to_string(tempnode));
+					digraph.push_back(to_string(node) + "[label = " +'"'+ code+'"' + "]");
+					node++;
+				}
+				
+				
+			}
+			else /*if (code.size() > 0)*/
 			{
 				digraph.push_back(to_string(node) + "[label = " +'"'+ code+'"' + "]");
+
+//HERE
+				
+				/*if(node==0){
+
+					digraph.push_back(to_string(node)+"->"+ digraph.push_back(node++));
+					node++;
+				}*/
+
 			}
 
-
+		
 			if (temp == "if" || temp == "else" || temp == "switch")
 			{
-				//digraph.push_back(to_string(node++) + "->" + to_string(node));
 				i--;
-			}
+			}	
 			else if (temp == "case")
 			{
-				digraph.push_back("HERE");
+
 				isFallthrough = true;
 				digraph.push_back(to_string(--node) + "->" + to_string(++node));
 				node++;
 				i--;
 			}
 			else if (temp == "}" && isSwitchbracket)
-			{
-				isSwitchbracket = false;
+			{	
+				if(isSwitchbracket){
+				digraph.push_back(to_string(node) + "->" + to_string(endNode));
+				isIfBracket = false;
+				}
+
 				continue;
 			}
 			else
 			{
+				if(isSwitchbracket)
+				{
+					isSwitchbracket= false;
+				}
+				else{
 				digraph.push_back(to_string(node) + "->" + to_string(endNode));
-				digraph.push_back(to_string(endNode) + "[label = " + '"' +"return 0" +'"' + ",shape=oval]");
+
+				}
 			}
 		}
 	}
+	digraph.push_back(to_string(endNode) + "[label = " + '"' +"return 0" +'"' + ",shape=oval]");
 
 	for (unsigned int i = 0; i < digraph.size(); i++)
 	{

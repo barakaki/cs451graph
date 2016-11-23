@@ -1,10 +1,15 @@
 int main(){
 switch(car){
 	case 'jeep':
-		codehere;
+		if(s==1){
+			if(x==1){something;}
+			else{bob;}
+		}
+		else{nothing;}
 		break;
 	case 'Mustang':
-		s= mustang;
+		if(k==4){build;}
+		else{destroy;}
 		break;
 	case 'bug':
 		isBug=1;
@@ -12,5 +17,4 @@ switch(car){
 		s=vw;
 		break;
 	default:
-}
 }

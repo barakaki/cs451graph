@@ -1,22 +1,35 @@
 digraph{
  node[shape = rectangle]
  
+"intmain()"-> 0
 0[label = "car" shape = diamond]
 0->1[label ="'jeep'"]
-1[label = "codehere"]
-1->-1
--1[label = "return 0",shape=oval]
-0->2[label ="'Mustang'"]
-2[label = "s=mustang"]
-2->-1
--1[label = "return 0",shape=oval]
-0->3[label ="'bug'"]
-3[label = "isBug=1"]
-HERE
-3->4
-0->4[label ="'vw'"]
-4[label = "s=vw"]
+1[label = "s==1" shape = diamond]
+1->2[label = true]
+2[label = "x==1" shape = diamond]
+2->3[label = true]
+3[label = "something"]
+3->-1
+2->4[label = false]
+4[label = "bob"]
 4->-1
--1[label = "return 0",shape=oval]
+1->5[label = false]
+5[label = "nothing"]
+5->-1
+0->6[label ="'Mustang'"]
+6[label = "k==4" shape = diamond]
+6->7[label = true]
+7[label = "build"]
+7->-1
+6->8[label = false]
+8[label = "destroy"]
+8->-1
+0->9[label ="'bug'"]
+9[label = "isBug=1"]
+9->10
+0->10[label ="'vw'"]
+10[label = "s=vw"]
+10->-1
 0->-1[label = "default"]
+-1[label = "return 0",shape=oval]
 }
